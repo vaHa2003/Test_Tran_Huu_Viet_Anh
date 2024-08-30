@@ -1,10 +1,12 @@
 # Test
 
-## Cách chạy chương trình
+## Cách Chạy Chương Trình
 
-To run the program, use the command `npm run dev`.
+**URL**: [http://localhost:5173/](http://localhost:5173/)
 
-## Thư viện được sử dụng trong dự án
+- **Lệnh để chạy dự án**: `npm run dev`
+
+## Thư Viện Được Sử Dụng Trong Dự Án
 
 - `axios`
 - `jwt-decode`
@@ -14,5 +16,6 @@ To run the program, use the command `npm run dev`.
 - `aos`
 - `tailwindcss`
 
--  `GET: /galleries: Lấy ảnh từ galleries` : Em thấy đang bị lỗi về imageUrl nó hiện `404`
--  
+### Lỗi Khi Lấy Ảnh Từ Galleries
+
+- **GET: /galleries**: Lấy ảnh từ galleries. Em thấy đang bị lỗi về `imageUrl`, nó hiện lỗi `404`.
