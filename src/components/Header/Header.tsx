@@ -10,6 +10,7 @@ export const deleteLogOut = async () => {
   try {
     await AxiosInstance.delete("/auth/logout");
     localStorage.removeItem("token");
+    window.location.reload();
   } catch (error) {
     console.error(error);
   }
@@ -17,12 +18,15 @@ export const deleteLogOut = async () => {
 
 const Header = () => {
   const { user } = useContext(SignInContext);
+  const navigate = useNavigate();
 
   const handleLogoOut = async () => {
-    deleteLogOut();
+    await deleteLogOut();
+    navigate("/signin"); // Điều hướng đến trang đăng nhập sau khi đăng xuất
   };
 
   const [toogleNav, setToogleNav] = useState<boolean>(false);
+
   return (
     <div className="bg-[#f6fafd] mb-12 lg:mb-0 z-30 px-4 lg:px-0 relative">
       <div className="container mx-auto">
@@ -55,16 +59,14 @@ const Header = () => {
             <NavMobile />
           </div>
 
-          {/* login succesfully */}
-          {!user && (
+          {/* Login/Logout/Profile Buttons */}
+          {!user ? (
             <Link to="/signin">
               <button className="h-[40px] px-[30px] rounded-[20px] text-white btn-primary mb-8 xl:mb-0">
                 Sign in
               </button>
             </Link>
-          )}
-
-          {user && (
+          ) : (
             <div className="flex gap-2 items-center">
               <Link to="/profile/post">
                 <button className="h-[40px] px-[30px] rounded-[20px] text-white btn-primary mb-8 xl:mb-0">

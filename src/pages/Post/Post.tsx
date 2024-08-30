@@ -181,6 +181,12 @@ const Post = () => {
           <tbody>
             {posts.map((post, index) => {
               const { id, title, tags, description } = post;
+              // Xử lý tags: Kiểm tra nếu là mảng các chuỗi hoặc mảng các đối tượng
+              const tagsString = Array.isArray(tags)
+                ? tags
+                    .map((tag) => (typeof tag === "string" ? tag : tag.tag))
+                    .join(", ")
+                : "";
               return (
                 <tr key={index} className="bg-white text-center">
                   <th
@@ -194,7 +200,7 @@ const Post = () => {
                     {description}
                   </td>
                   <td className="px-6 py-4 border border-slate-500">
-                    {tags[0]?.tag || tags?.join(",")}
+                    {tagsString}
                   </td>
                   <td className="px-6 py-4 border border-slate-500">
                     <span className="flex gap-4 items-center justify-center">

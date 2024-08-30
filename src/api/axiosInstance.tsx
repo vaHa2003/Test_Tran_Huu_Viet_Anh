@@ -32,7 +32,7 @@ AxiosInstance.interceptors.response.use(
     return response;
   },
   async (error: AxiosError) => {
-    if (error.response && error.response.status === 403) {
+    if (error.response && error.response.status === 401) {
       console.log("Received 403 error, attempting to refresh token...");
 
       const tokenData = JSON.parse(localStorage.getItem("token") || "{}");
