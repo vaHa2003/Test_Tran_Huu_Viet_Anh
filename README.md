@@ -13,3 +13,6 @@ To run the program, use the command `npm run dev`.
 - `swiper`
 - `aos`
 - `tailwindcss`
+
+-  `GET: /galleries: Lấy ảnh từ galleries` : Em thấy đang bị lỗi về imageUrl nó hiện `404`
+-  
